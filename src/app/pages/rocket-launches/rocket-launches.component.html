@@ -1,0 +1,62 @@
+<h2>Starty rakiet</h2>
+<div class="launches-container">
+  <div class="launches-list-container">
+    <ul class="launches-list">
+      <li *ngFor="let l of launches" (click)="selectLaunch(l.id)">
+        <div class="launch-name">{{l.name}}</div>
+        <div class="time-start">{{l.net}}</div>
+      </li>
+    </ul>
+    <button class="pagination-btn" (click)="getPreviousLaunches()" *ngIf="offset >= 5">Poprzednie</button>
+    <button class="pagination-btn" (click)="getNextLaunches()">Następne</button>
+  </div>
+  <div class="selected-launch-container" *ngIf="selectedLaunch">
+    <h3>{{selectedLaunch.name}}</h3>
+    <p class="start-time">Czas wystrzelenia: {{selectedLaunch.net}}</p>
+    <section>
+      <h4>Rakieta - {{selectedLaunch.rocket.name}}</h4>
+      <div>
+        <a class="read-more" href="{{selectedLaunch.rocket.wikiURL}}">Czytaj więcej o {{selectedLaunch.rocket.name}}...</a>
+      </div>
+      <img class="rocket-image" *ngIf="selectedLaunch.rocket.imageURL" alt="{{selectedLaunch.rocket.name}}" src="{{selectedLaunch.rocket.imageURL}}" (click)="open(selectedLaunch.rocket.imageURL, selectedLaunch.rocket.name)"/>
+      <!------
+      <h5>Agencje kosmiczne</h5>
+      <ul class="rocket-agencies-list">
+        <li *ngFor="let a of selectedLaunch.rocket.agencies">
+          <a href="{{a.wikiURL}}">{{a.name}}</a>
+        </li>
+      </ul>
+      ------>
+    </section>
+    <section>
+      <h4>Misja</h4>
+      <div *ngFor="let mission of selectedLaunch.missions" class="mission-container">
+        <h5>{{mission.name}} <br> Typu: {{mission.typeName}} </h5>
+        <p class="mission-description">{{mission.description}}</p>
+      </div>
+    </section>
+    <section>
+      <h4>Agencja kosmiczna</h4>
+      <h5>{{selectedLaunch.lsp.name}}</h5>
+      <a class="read-more" href="{{selectedLaunch.lsp.wikiURL}}">czytaj więcej...</a>
+      <h5>Media społeczościowe</h5>
+      <a class="read-more" *ngFor="let l of selectedLaunch.lsp.infoURLs" href="{{l}}">{{l}}<br></a>
+    </section>
+    <section>
+      <h4>Lokalizacja</h4>
+      <h5>{{selectedLaunch.location.name}}</h5>
+      <div style="height: 350px;"
+        leaflet
+        [leafletOptions]="mapOptions"
+      >
+        <div [(leafletLayer)]="mapLaunchPad"></div>
+      </div>
+      <h5>Platforma</h5>
+      <ul class="pad-list">
+        <li *ngFor="let pad of selectedLaunch.location.pads">
+          <p>{{pad.name}} <br> ({{pad.latitude}}, {{pad.longitude}})</p>
+        </li>
+      </ul>
+    </section>
+  </div>
+</div>

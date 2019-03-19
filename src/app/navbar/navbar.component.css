@@ -1,0 +1,84 @@
+.main-nav{
+    margin-top: 1.5rem;
+    width: 100%;
+}
+
+.main-nav h1{
+    color: white;
+    font-size: 4rem;
+    margin: 0;
+    letter-spacing: .05rem;
+    width: 100%;
+}
+
+.main-nav .subpages{
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+}
+
+.main-nav .subpages li{
+    margin: 0 1rem;
+}
+
+.main-nav .subpages li:first-child{
+    margin-left: 0;
+}
+
+.main-nav .subpages li a{
+    text-decoration: none;
+    color: white;
+    font-size: 2rem;
+    padding-bottom: .5rem;
+}
+
+.main-nav .subpages li a:hover{
+    border-bottom: .1rem solid white;
+}
+
+.hamburger{
+    display: none;
+}
+
+@media (max-width: 720px) {
+    .main-nav .subpages{
+        position: fixed;
+        top: 0; left: 0;
+        width: 100vw;
+        height: 100vh;
+        padding: 0;
+        margin: 0;
+        z-index: 15000;
+        background-color: #101214;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        display: none;
+    }
+
+    .open .subpages{
+        display: flex;
+    }
+
+    .main-nav .subpages li{
+        margin: 1rem 0;
+    }
+
+    .main-nav .subpages li a{
+        font-size: 2.5rem;
+    }
+
+    .hamburger{
+        display: block;
+        width: 5rem;
+        height: 5rem;
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        z-index: 1000000;
+    }
+
+    .hamburger img{
+        width: 100%;
+    }
+}

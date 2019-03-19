@@ -1,0 +1,83 @@
+<nav class="subpage-nav">
+  <ul>
+    <li>
+      <a (click)="scrollTo('about')">O ISS</a>
+    </li>
+    <li>
+      <a (click)="scrollTo('live-position')">Pozycja na żywo</a>
+    </li>
+    <!--
+    <li>
+      <a (click)="scrollTo('flights-finder')">Wyszukiwarka przelotów</a>
+    </li>
+    --->
+    <li>
+      <a (click)="scrollTo('people-in-space')">Aktualnie w kosmosie</a>
+    </li>
+  </ul>
+</nav>
+
+<section id="about">
+  <h2>ISS - międzynarodowa stacja kosmiczna</h2>
+  <p class="iss-about">
+    ISS to międzynarodowa stacja kosmiczna. Pierwsza wybudowana przez wiele krajów. Jej załoga składa się maksymalnie z 7 osób, które są różnej narodowści.
+    Głównym zadaniem ISS jest prowadzenie badań naukowych w warunkach mikrograwitacji. Badania te docelowo mają udoskonalić sposób prowadzenia upraw oraz
+    pozwolić na lepsze poznanie ludzkiego ciała. Międzynarodowa stacja kosmiczna składa się z 16 modułów i okrąża ziemię w 91,34 minuty. Znajduję się ona
+    w odległośći około 400km od ziemi. 
+    Ta sekcja serwisu <b>Spaceinfo</b> umożliwia podglądanie aktualnej pozycji ISS oraz daje możliwość sprawdzenia kto dokładnie znajduje się teraz na ISS.
+    Po kliknięciu na interesujące nas nazwisko zostaniemy odesłani do artykułu na wikipedii opisującego kosmonautę lub astronautę.
+  </p>
+</section>
+
+<section id="live-position">
+  <h2>Pozycja na żywo</h2>
+  <p class="iss-about">
+    Międzynarodowa stacja kosmiczna znajduje się na tzw niskiej orbicie okołoziemskiej czyli nie jest satelitą geostacjonarnym. 
+    Oznacza to, że porusza się względem ziemi. A porusza się bardzo szybko bo z prędkością 28 000 km/h.
+    Poniżej możesz odczytać koordynaty geograficzne miejsca nad którym aktulnie przelatuje ISS. Są one aktualizowane co pół sekundy. 
+    Satelita jest również zaznaczony na mapie.
+  </p>
+  <p class="iss-position-detail">Szerokość geograficzna: <b>{{latitude}}</b></p>
+  <p class="iss-position-detail">Długość geograficzna: <b>{{longitude}}</b></p>
+  <div class="map"
+     leaflet
+     [leafletOptions]="mapOptions"
+     [(leafletCenter)]="mapStartPoint"
+  >
+    <div [(leafletLayer)]="mapIss"></div>
+    <div [(leafletLayer)]="mapIssTiny"></div>
+  </div>
+</section>
+
+<!---
+<section id="flights-finder">
+  <h2>Wyszukiwarka przelotów</h2>
+  <div class="flights-finder-container">
+    <div class="form">
+      <div class="form-container">
+        <input type="text" name="location" id="location" [(ngModel)]="locationInput"/>
+        <label for="location">Podaj lokalizację</label>
+      </div>
+      <div class="form-container">
+        <input type="number" name="numberOfFlights" id="numberOfFlights" [(ngModel)]="numberOfFlightsInput"/>
+        <label for="location">Ilość przelotów</label>
+      </div>
+      <button class="btn" (click)="findFlights()">
+        Szukaj
+      </button>
+    </div>
+    <div class="flights-display">
+
+    </div>
+  </div>
+</section>
+--->
+
+<section id="people-in-space">
+  <h2>Kto aktualnie przebywa na ISS?</h2>
+  <ul class="iss-crew">
+    <li *ngFor="let human of issCrew">
+      <a href="https://en.wikipedia.org/wiki/{{human.name}}">{{human.name}}</a>
+    </li>
+  </ul>
+</section>

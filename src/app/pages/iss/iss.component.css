@@ -1,0 +1,115 @@
+h2{
+    color: white;
+    font-size: 3rem;
+    font-weight: normal;
+}
+
+.iss-about{
+    font-size: 1.5rem;
+    line-height: 150%;
+    color: white;
+    text-align: justify;
+}
+
+.iss-position-detail{
+    font-size: 2rem;
+    color: white;
+    letter-spacing: 0.1rem;
+}
+
+.iss-crew{
+    list-style-type: square;
+    color: white;
+    font-size: 2rem;
+}
+
+.iss-crew a{
+    color: white;
+    text-decoration: none;
+}
+
+section{
+    padding: 1.5rem 0;
+}
+
+.subpage-nav ul{
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    margin-top: 1.5rem;
+}
+
+.subpage-nav ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 2rem;
+    padding-bottom: .5rem;
+    cursor: pointer;
+}
+
+.subpage-nav ul li{
+    margin: 0 1rem;
+}
+
+.subpage-nav ul li:first-child{
+    margin-left: 0;
+}
+
+.subpage-nav ul li a:hover{
+    border-bottom: .1rem solid white;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0;
+}
+
+.form-container input{
+    border: .15rem solid white;
+    background-color: black;
+    font-size: 2rem;
+    padding: 1rem;
+    color: white;
+}
+
+.form-container label{
+    color: white;
+    font-size: 1.5rem;
+    margin-top: .5rem;
+}
+
+#flights-finder .form{
+    width: 20%;
+}
+
+#flights-finder .form .btn{
+    color: white;
+    border: .15rem solid white;
+    color: white;
+    padding: 1rem;
+    font-size: 2rem;
+    background-color: black;
+    cursor: pointer;
+}
+
+.flights-finder-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.flights-display{
+    width: 60%;
+}
+
+.map{
+    box-sizing: border-box;
+    height: 60rem;
+    border: .1rem solid lightgray;
+}
+
+@media (max-width: 500px) {
+    .subpage-nav{
+        display: none;
+    }
+}

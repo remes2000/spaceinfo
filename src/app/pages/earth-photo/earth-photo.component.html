@@ -1,0 +1,50 @@
+<h2>Zdjęcia Ziemi</h2>
+<p class="earth-photo-about">
+  Ta podstrona umożliwia nam podgląd zdjęć naszej pięknej planety. Zdjęcia te wykonywane są przez kamerę EPIC która znajduje się na amerykańskiej sondzie kosmicznej
+  DSCOVR (Deep Space Climate Observatory). Dostępne są zdjęcia od czerwca 2015r. do dziś. 
+</p>
+<div class="form">
+  <div class="field-container">
+    <input type="text" id="year" name="year" [(ngModel)]="year"/>
+    <label for="year">Rok</label>
+  </div>
+  <div class="field-container">
+      <select id="month" [(ngModel)]="month">
+        <option [ngValue]="1">Styczeń</option>
+        <option [ngValue]="2">Luty</option>
+        <option [ngValue]="3">Marzec</option>
+        <option [ngValue]="4">Kwiecień</option>
+        <option [ngValue]="5">Maj</option>
+        <option [ngValue]="6">Czerwiec</option>
+        <option [ngValue]="7">Lipiec</option>
+        <option [ngValue]="8">Sierpień</option>
+        <option [ngValue]="9">Wrzesień</option>
+        <option [ngValue]="10">Październik</option>
+        <option [ngValue]="11">Listopad</option>
+        <option [ngValue]="12">Grudzień</option>
+      </select>
+      <label for="month">Miesiąc</label>
+  </div>
+  <div>
+    <button class="btn" (click)="findAvailableDates()">Sprawdź dostępne dni</button>
+  </div>
+</div>
+<div class="days-container">
+  <div class="available-day" *ngFor="let d of availableDays" (click)="displayPhoto(d)">{{d}}</div>
+</div>
+
+<div class="image-display" *ngIf="photos.length !== 0">
+  <div class="left">
+    <div class="arrow">
+      <img src="assets/arrow-left.png" (click)="previousPhoto()" [ngClass]="currentPhotoIndex===0?'hide':''"/>
+    </div>
+  </div>
+  <div class="earth">
+    <img [(src)]="currentPhotoUrl" />
+  </div>
+  <div class="right">
+    <div class="arrow">
+        <img src="assets/arrow-right.png" (click)="nextPhoto()" [ngClass]="currentPhotoIndex===numberOfPhotos - 1?'hide':''"/>
+    </div>
+  </div>
+</div>

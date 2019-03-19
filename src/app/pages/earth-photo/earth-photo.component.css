@@ -1,0 +1,124 @@
+h2{
+    color: white;
+    font-size: 3rem;
+    font-weight: normal;
+}
+
+.earth-photo-about{
+    font-size: 1.5rem;
+    line-height: 150%;
+    color: white;
+    text-align: justify;
+}
+
+.btn{
+    background-color: transparent;
+    border: .1rem solid white;
+    border-radius: .2rem;
+    padding: .75rem 1.5rem;
+    font-size: 2rem;
+    color: white;
+    text-transform: lowercase;
+    letter-spacing: .2rem;
+    cursor: pointer;
+    transition: .2s all linear;
+    margin-right: 1rem;
+}
+
+.btn:hover{
+    color: #101214;
+    background-color: white;
+}
+
+.datepicker-container{
+    width: 30rem; 
+}
+
+.image-display{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    border: .1rem solid white;
+    margin: 1.5rem 0;
+    justify-content: space-between;
+    background-color: black;
+}
+
+.image-display .left,
+.image-display .right{
+    width: 6%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-display .earth{
+    width: 70%;
+}
+
+.image-display .earth img{
+    width: 100%;
+}
+
+.image-display .arrow{
+    width: 50%;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.image-display .arrow img{
+    width: 100%;
+}
+
+.hide{
+    display: none;
+}
+
+.form{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 5rem 0;
+}
+
+.form .field-container{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: 3rem 0;
+}
+
+.form .field-container label{
+    font-size: 1.7rem;
+    color: white;
+    margin-top: .5rem;
+}
+
+.form .field-container input,
+.form .field-container select{
+    border: .1rem solid white;
+    background-color: black;
+    padding: 1rem;
+    font-size: 1.3rem;
+    color: white;
+}
+
+.days-container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.available-day{
+    font-size: 1.5rem;
+    color: white;
+    padding: 1.5rem;
+    margin: 1rem;
+    border: .1rem solid white;
+    border-radius: .5rem;
+    cursor: pointer;
+}
